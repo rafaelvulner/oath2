@@ -33,7 +33,7 @@ public class DataInitializr implements ApplicationListener<ContextRefreshedEvent
         List<User> users = userRepository.findAll();
         if(users.isEmpty()){
             this.createUsers("Rafael Elias", "rafaell.elias@hotmail.com", "rafaelvulner", passwordEncoder.encode("123456"), "ROLE_ADMIN");
-            this.createUsers("Carlos", "carlos@hotmail.com", "carlota", passwordEncoder.encode("123456"), "ROLE_USER");
+            this.createUsers("Carmo", "carmo@hotmail.com", "carmo", passwordEncoder.encode("123456"), "ROLE_USER");
         }
 
     }

@@ -1,11 +1,10 @@
 package com.oauth2.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -20,7 +19,8 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
+    @NotNull(message = "Campo não pode ser nulo")
     private String email;
 
     @Column(name = "username", nullable = false)

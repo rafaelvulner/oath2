@@ -23,6 +23,19 @@ public class UserController {
         return ResponseEntity.ok().body(userService.findAll(page));
     }
 
+    @GetMapping("/roleUser")
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    public ResponseEntity<String> roleUser(){
+        return ResponseEntity.ok().body("Usuario pode ver.");
+    }
+
+    @GetMapping("/roleAdmin")
+    @Secured({"ROLE_ADMIN"})
+    public ResponseEntity<String> roleAdmin(){
+        return ResponseEntity.ok().body("Usuario pode ver.");
+    }
+
+
     @GetMapping("/{id}")
     @Secured({"ROLE_ADMIN", "ROLE_USER"})
     public ResponseEntity<User> findById(@PathVariable("id") Integer id){
